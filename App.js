@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.dummyText}>
+        Open up App.js to start working on your app!
+      </Text>
+      <Button title='Click Me' onPress={() => alert("Button Clicked!")} />
     </View>
   );
 }
@@ -11,8 +14,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "lightblue",
     alignItems: "center",
     justifyContent: "center",
+  },
+  dummyText: {
+    color: "red",
   },
 });
