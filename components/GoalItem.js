@@ -1,16 +1,14 @@
 import { StyleSheet, View, Text, Button } from "react-native";
 
 export default function GoalItem(props) {
-  const { itemData, courseGoals } = props;
+  const { itemData, courseGoals, removeGoalHandler } = props;
 
   return (
     <View style={styles.goalItem}>
       <Text>{itemData.item}</Text>
       <Button
         title='Delete'
-        onPress={() =>
-          props.removeGoalHandler(courseGoals.indexOf(itemData.item))
-        }
+        onPress={() => removeGoalHandler(courseGoals.indexOf(itemData.item))}
       />
     </View>
   );
