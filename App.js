@@ -1,13 +1,6 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TextInput,
-  ScrollView,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, Button, TextInput, FlatList } from "react-native";
 import { useState } from "react";
+import GoalItem from "./components/GoalItem";
 
 export default function App() {
   const [enteredGoal, setEnteredGoal] = useState("");
@@ -41,15 +34,13 @@ export default function App() {
         <FlatList
           data={courseGoals}
           renderItem={(itemData) => (
-            <View style={styles.goalItem}>
-              <Text>{itemData.item}</Text>
-              <Button
-                title='Delete'
-                onPress={() =>
-                  removeGoalHandler(courseGoals.indexOf(itemData.item))
-                }
-              />
-            </View>
+            <GoalItem
+              itemData={itemData}
+              courseGoals={courseGoals}
+              removeGoalHandler={() =>
+                removeGoalHandler(courseGoals.indexOf(itemData.item))
+              }
+            />
           )}
         />
       </View>
@@ -86,17 +77,5 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.3,
     borderTopColor: "black",
     paddingTop: 16,
-  },
-  goalItem: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 10,
-    marginVertical: 10,
-    backgroundColor: "lightblue",
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 5,
   },
 });
