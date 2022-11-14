@@ -35,7 +35,7 @@ export default function App() {
             <Text>{goal}</Text>
             <Button
               title='Delete'
-              onPress={removeGoalHandler(courseGoals.indexOf(goal))}
+              onPress={() => removeGoalHandler(courseGoals.indexOf(goal))}
             />
           </View>
         ))}
