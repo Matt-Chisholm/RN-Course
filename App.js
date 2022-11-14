@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  ScrollView,
+} from "react-native";
 import { useState } from "react";
 
 export default function App() {
@@ -30,15 +37,17 @@ export default function App() {
         <Button title='Add Goal' onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        {courseGoals.map((goal) => (
-          <View style={styles.goalItem} key={goal}>
-            <Text>{goal}</Text>
-            <Button
-              title='Delete'
-              onPress={() => removeGoalHandler(courseGoals.indexOf(goal))}
-            />
-          </View>
-        ))}
+        <ScrollView>
+          {courseGoals.map((goal) => (
+            <View style={styles.goalItem} key={goal}>
+              <Text>{goal}</Text>
+              <Button
+                title='Delete'
+                onPress={() => removeGoalHandler(courseGoals.indexOf(goal))}
+              />
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
