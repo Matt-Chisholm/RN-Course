@@ -5,6 +5,7 @@ import {
   Button,
   TextInput,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { useState } from "react";
 
@@ -37,17 +38,20 @@ export default function App() {
         <Button title='Add Goal' onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView>
-          {courseGoals.map((goal) => (
-            <View style={styles.goalItem} key={goal}>
-              <Text>{goal}</Text>
+        <FlatList
+          data={courseGoals}
+          renderItem={(itemData) => (
+            <View style={styles.goalItem}>
+              <Text>{itemData.item}</Text>
               <Button
                 title='Delete'
-                onPress={() => removeGoalHandler(courseGoals.indexOf(goal))}
+                onPress={() =>
+                  removeGoalHandler(courseGoals.indexOf(itemData.item))
+                }
               />
             </View>
-          ))}
-        </ScrollView>
+          )}
+        />
       </View>
     </View>
   );
