@@ -33,7 +33,10 @@ export default function App() {
         {courseGoals.map((goal) => (
           <View style={styles.goalItem} key={goal}>
             <Text>{goal}</Text>
-            <Button title='Delete' />
+            <Button
+              title='Delete'
+              onPress={removeGoalHandler(courseGoals.indexOf(goal))}
+            />
           </View>
         ))}
       </View>
@@ -78,8 +81,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 10,
     marginVertical: 10,
-    backgroundColor: "#ccc",
+    backgroundColor: "lightblue",
     borderColor: "black",
     borderWidth: 1,
+    borderRadius: 5,
   },
 });
