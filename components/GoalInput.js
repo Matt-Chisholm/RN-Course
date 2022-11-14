@@ -19,6 +19,7 @@ export default function GoalInput(props) {
         placeholder='Set your goal!'
         style={styles.textInput}
         onChangeText={goalInputHandler}
+        value={enteredGoal}
         clearButtonMode='always'
       />
       <Button title='Add Goal' onPress={addGoalHandler} />
